@@ -1,4 +1,3 @@
-
 const makeBlogTable = (sequelize,DataTypes)=>{
     const Blog =  sequelize.define('blog',{
          title : {
@@ -15,10 +14,10 @@ const makeBlogTable = (sequelize,DataTypes)=>{
          }, 
          image : {
              type : DataTypes.STRING, 
-         }
+         }, 
+ 
      })
      return Blog
  }
  
  module.exports = makeBlogTable
- 
