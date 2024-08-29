@@ -1,7 +1,12 @@
 require('dotenv').config()
 // const app = require('express')()
 const express = require('express')
-const { blogs } = require('./model/index')
+const { blogs, sequelize } = require('./model/index')
+// const multer = require('./middleware/multerConfig').multer
+// const storage = require('./middleware/multerConfig').storage
+const {multer,storage,storage2,storage3} = require('./middleware/multerconfig')
+const upload = multer({storage:storage})
+
 
 const app = express()
 
@@ -16,7 +21,8 @@ app.get("/create",(req,res)=>{
 
 })
 
-app.post('/create',async (req,res)=>{
+
+app.post('/create',upload.single('image') ,async (req,res)=>{
     // const title = req.body.title 
     // const subtitle = req.body.subtitle 
     // const description = req.body.description
@@ -29,7 +35,6 @@ app.post('/create',async (req,res)=>{
     res.send("Blog added successfully")
 
 })
-
 
 
 app.use(express.static('public/css/'))
