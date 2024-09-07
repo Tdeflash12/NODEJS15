@@ -10,7 +10,7 @@ router.route("/delete/:id").get(deleteBlog)
 router.route("/create").get(createForm).post(upload.single('image'),createBlog)
 
 
-
+//  odrjgodgj
 
 
 module.exports = router 
